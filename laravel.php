@@ -14,8 +14,8 @@ $validate = [
         'regex:/[0-9]/',
         'regex:/[@$!%*?&]/',
     ],
-    'email' => 'required|email|max:255|regex:/^[a-zA-Z0-9._\s]+$/|unique:users,email', // create
-    'email' => 'required|email|max:255|regex:/^[a-zA-Z0-9._\s]+$/|unique:users,email,' . $this->id . ',id', // update
+    'email' => 'required|string|max:255|email|regex:/^[a-zA-Z0-9@.]+$/|unique:users,email', // create
+    'email' => 'required|string|max:255|email|regex:/^[a-zA-Z0-9@.]+$/|unique:users,email,' . $this->id . ',id', // update
     'username' => 'required|string|min:3|max:50|regex:/^[a-zA-Z0-9._]+$/|unique:users,username', // create
     'username' => 'required|string|min:3|max:50|regex:/^[a-zA-Z0-9._]+$/|unique:users,username,' . $this->id . ',id', // update
     
@@ -41,6 +41,7 @@ $validate = [
     'time' => 'required|date_format:H:i',
     'hours' => 'required|integer|min:0|max:24',
     'no_telp' => 'required|regex:/^\+?[0-9]{10,15}$/', // +6281234567890
+    'no_telp' => 'required|regex:/^[0-9]+$/|min:10|max:15', // 081234567890
 
     'ktp' => 'required|digits:16|unique:users,ktp', // create
     'ktp' => 'required|digits:16|unique:users,ktp,' . $this->id . ',id', // update
